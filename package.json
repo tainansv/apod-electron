@@ -1,0 +1,24 @@
+{
+  "name": "apod",
+  "version": "1.0.0",
+  "description": "Astronomy Picture of the Day",
+  "main": "main.js",
+  "scripts": {
+    "serve": "lite-server -c=bs-config.json",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "javascript",
+    "app",
+    "apod"
+  ],
+  "author": "Tainan Valentim",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.6.11",
+    "jquery": "^3.2.1",
+    "jquery-ui-dist": "^1.12.1"
+  }
+}
