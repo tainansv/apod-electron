@@ -17,7 +17,9 @@
   "author": "Tainan Valentim",
   "license": "ISC",
   "dependencies": {
+    "auto-updater": "^1.0.2",
     "electron": "^1.6.11",
+    "electron-updater": "^2.2.4",
     "jquery": "^3.2.1",
     "jquery-ui-dist": "^1.12.1"
   }
