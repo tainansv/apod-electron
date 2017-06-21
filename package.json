@@ -29,8 +29,7 @@
   "build": {
     "appId": "apod_electron",
     "publish": [{
-      "provider": "github",
-      "token": "fe829499cf7da297c0f1a320d78533839cdb9a45"
+      "provider": "github"
     }]
   }
 }
