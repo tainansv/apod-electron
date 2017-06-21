@@ -1,5 +1,6 @@
 const electron = require('electron')
 const {app, BrowserWindow} = electron
+const {autoUpdater} = require('electron-updater')
 
 let win
 
@@ -22,7 +23,17 @@ function createWindow() {
     })
 }
 
-app.on('ready', createWindow)
+autoUpdater.on('update-downloaded', (ev, info) => {
+  setTimeout(function() {
+    autoUpdater.quitAndInstall();  
+  }, 5000)
+})
+
+
+app.on('ready', () => {
+    createWindow();
+    autoUpdater.checkForUpdates();
+})
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

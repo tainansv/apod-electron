@@ -1,26 +1,36 @@
 {
-  "name": "apod",
-  "version": "1.0.0",
-  "description": "Astronomy Picture of the Day",
+  "name": "apod_electron",
+  "version": "0.0.1",
+  "description": "Simple Astronomy Picture of the Day app built with electron",
   "main": "main.js",
   "scripts": {
+    "release": "build -p always",
     "serve": "lite-server -c=bs-config.json",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/tainansv/apod-electron",
   "keywords": [
     "electron",
     "javascript",
     "app",
     "apod"
   ],
-  "author": "Tainan Valentim",
+  "author": "Tainan Valentim <tainansv@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "auto-updater": "^1.0.2",
+    "electron-updater": "^2.3.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
     "electron": "^1.6.11",
-    "electron-updater": "^2.2.4",
-    "jquery": "^3.2.1",
-    "jquery-ui-dist": "^1.12.1"
+    "electron-builder": "^19.5.1"
+  },
+  "build": {
+    "appId": "apod_electron",
+    "publish": [{
+      "provider": "github",
+      "token": "fe829499cf7da297c0f1a320d78533839cdb9a45"
+    }]
   }
 }
