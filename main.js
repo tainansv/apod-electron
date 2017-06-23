@@ -46,10 +46,6 @@ function handleRedirect(e, url) {
     electron.shell.openExternal(url)
 }
 
-bs.init({
-    localyOnly: true
-})
-
 //auto-update options
 autoUpdater.on('update-downloaded', (ev, info) => {
     win.webContents.send('message', "Update dowloaded. Will install in 5 seconds.");
