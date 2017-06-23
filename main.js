@@ -1,7 +1,6 @@
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const {app, BrowserWindow, dialog} = electron
 const {autoUpdater} = require('electron-updater')
-const bs = require('browser-sync')
 
 let win
 
@@ -53,7 +52,8 @@ bs.init({
 
 //auto-update options
 autoUpdater.on('update-downloaded', (ev, info) => {
-  setTimeout(function() {
-    autoUpdater.quitAndInstall();  
-  }, 5000)
+    win.webContents.send('message', "Update dowloaded. Will install in 5 seconds.");
+    setTimeout(function() {
+        autoUpdater.quitAndInstall();  
+    }, 5000)
 })

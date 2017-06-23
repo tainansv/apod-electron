@@ -1,11 +1,11 @@
 {
   "name": "apod_electron",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "Simple Astronomy Picture of the Day app built with electron",
   "main": "main.js",
   "scripts": {
     "dist": "electron-packager . --all",
-    "release": "build -mlw -p always",
+    "release": "build -p always",
     "serve": "browser-sync start",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +24,6 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.12",
     "electron": "^1.6.11",
     "electron-builder": "^19.5.1"
   },
@@ -54,11 +53,6 @@
     "win": {
       "target": "NSIS",
       "icon": "build/icon.ico"
-    },
-    "publish": [
-      {
-        "provider": "github"
-      }
-    ]
+    }
   }
 }
