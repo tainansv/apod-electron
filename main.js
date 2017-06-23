@@ -1,6 +1,7 @@
 const electron = require('electron')
 const {app, BrowserWindow} = electron
 const {autoUpdater} = require('electron-updater')
+const bs = require('browser-sync')
 
 let win
 
@@ -23,13 +24,7 @@ function createWindow() {
     })
 }
 
-autoUpdater.on('update-downloaded', (ev, info) => {
-  setTimeout(function() {
-    autoUpdater.quitAndInstall();  
-  }, 5000)
-})
-
-
+//app options
 app.on('ready', () => {
     createWindow();
     autoUpdater.checkForUpdates();
@@ -51,3 +46,14 @@ function handleRedirect(e, url) {
     e.preventDefault()
     electron.shell.openExternal(url)
 }
+
+bs.init({
+    localyOnly: true
+})
+
+//auto-update options
+autoUpdater.on('update-downloaded', (ev, info) => {
+  setTimeout(function() {
+    autoUpdater.quitAndInstall();  
+  }, 5000)
+})

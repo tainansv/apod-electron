@@ -12,8 +12,10 @@ function newImage() {
             $('#cprt').text('Credit & Copyright: ' + image.copyright);
             $('#bt-view').attr('href', image.hdurl);
             $('#text').text(image.explanation);
-            $('#loader').addClass('hide');
             $('#image, #controls').removeClass('hide');
+            $('#inner-image').on("load", () => {
+                $('#loader').addClass('hide');
+            })
         }
     });
 }

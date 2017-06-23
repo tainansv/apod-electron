@@ -4,8 +4,9 @@
   "description": "Simple Astronomy Picture of the Day app built with electron",
   "main": "main.js",
   "scripts": {
-    "release": "build -p always",
-    "serve": "lite-server -c=bs-config.json",
+    "dist": "electron-packager . --all",
+    "release": "build -mlw -p always",
+    "serve": "browser-sync start",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,17 +20,45 @@
   "author": "Tainan Valentim <tainansv@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "electron-updater": "^2.3.1",
+    "electron-updater": "^2.4.2",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.12",
     "electron": "^1.6.11",
     "electron-builder": "^19.5.1"
   },
   "build": {
     "appId": "apod_electron",
-    "publish": [{
-      "provider": "github"
-    }]
+    "productName": "Apod Electron",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
